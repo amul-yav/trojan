@@ -1,6 +1,7 @@
 # EcoSentinel AI 🌍
 
 Autonomous environmental crisis prediction system for the Indian government.
+
 Hosting: https://astounding-begonia-80ab29.netlify.app/
 
 ## Overview
