@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-navy-900: #0f172a;
+  --color-navy-800: #1e293b;
+  --color-navy-700: #334155;
+  
+  /* Indian NAQI Colors - Refined for light theme */
+  --color-naqi-good: #22c55e;
+  --color-naqi-satisfactory: #84cc16;
+  --color-naqi-moderate: #eab308;
+  --color-naqi-poor: #f97316;
+  --color-naqi-verypoor: #ef4444;
+  --color-naqi-severe: #b91c1c;
+}
+
+@layer utilities {
+  .bg-naqi-good { background-color: var(--color-naqi-good); }
+  .bg-naqi-satisfactory { background-color: var(--color-naqi-satisfactory); }
+  .bg-naqi-moderate { background-color: var(--color-naqi-moderate); }
+  .bg-naqi-poor { background-color: var(--color-naqi-poor); }
+  .bg-naqi-verypoor { background-color: var(--color-naqi-verypoor); }
+  .bg-naqi-severe { background-color: var(--color-naqi-severe); }
+  .text-naqi-good { color: var(--color-naqi-good); }
+  .text-naqi-satisfactory { color: var(--color-naqi-satisfactory); }
+  .text-naqi-moderate { color: var(--color-naqi-moderate); }
+  .text-naqi-poor { color: var(--color-naqi-poor); }
+  .text-naqi-verypoor { color: var(--color-naqi-verypoor); }
+  .text-naqi-severe { color: var(--color-naqi-severe); }
+}
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900 font-sans antialiased;
+  }
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  background: #f8fafc !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+@media print {
+  /* Hide everything except the report */
+  body > * { display: none !important; }
+  #root > * { display: none !important; }
+  #root .print\:hidden { display: none !important; }
+
+  /* Show only the printable report card */
+  #root [ref] { display: block !important; }
+
+  /* Make the report fill the page cleanly */
+  @page { margin: 12mm; size: A4; }
+
+  body {
+    background: white !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  /* Ensure the report container is visible */
+  .bg-white { background: white !important; }
+  .rounded-2xl, .rounded-xl { border-radius: 0 !important; }
+  .shadow-sm, .shadow-lg, .shadow-2xl { box-shadow: none !important; }
+
+  /* Avoid page breaks inside sections */
+  section { page-break-inside: avoid; }
+  table { page-break-inside: avoid; }
+}
