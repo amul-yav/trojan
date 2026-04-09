@@ -1,6 +1,7 @@
 # EcoSentinel AI 🌍
 
 Autonomous environmental crisis prediction system for the Indian government.
+Hosting: https://astounding-begonia-80ab29.netlify.app/
 
 ## Overview
 EcoSentinel AI is a high-performance environmental monitoring and prediction dashboard. It automates the ingestion, cleaning, and analysis of air quality and weather data to provide real-time crisis intelligence.
